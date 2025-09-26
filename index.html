@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Tattoo Supply</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Globais e Fundo */
+        :root {
+            --dark-gray: #1a1a1a;
+            --light-gray: #f0f0f0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            font-family: var(--font-body);
+            text-align: center;
+            /* Simula um leve ruído/textura no fundo escuro */
+            background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300" fill="%23181818" opacity=".3"><path d="M0 0h100v100H0zM100 100h100v100H100zM200 200h100v100H200z" /></svg>');
+            background-size: 300px 300px;
+            background-blend-mode: multiply;
+        }
+
+        /* Container Principal para Centralizar o Conteúdo */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            max-width: 90%;
+            width: 500px;
+            /* Efeito "Glassmorphism" sutil no container principal */
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Estilo da Letra Ornamental 'K' (Logo) */
+        .logo-k {
+            font-family: var(--font-title);
+            font-size: 8rem; /* Letra bem grande */
+            font-weight: 900;
+            color: var(--light-gray);
+            /* Sombra para simular o efeito 3D/metálico */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 
+                         0 0 20px rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+
+        /* Títulos e Subtítulos */
+        .title {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Estilo dos Botões (Glassmorphism/Neomorphism) */
+        .btn-link {
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            max-width: 300px;
+            margin: 15px 0;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            
+            /* Efeito Glassmorphism nos Botões */
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--light-gray);
+            
+            /* Sombra interna para dar a aparência de relevo */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-link:hover {
+            /* Efeito de brilho ao passar o mouse/tocar */
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* Ícones ao lado do texto (opcional, pode ser removido se não quiser) */
+        .icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Rodapé Discreto */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 10px;
+            background-color: rgba(0, 0, 0, 0.3); /* Fundo sutil */
+            color: var(--light-gray);
+            font-size: 0.75rem;
+            font-weight: 300;
+            opacity: 0.6; /* Deixa bem discreto */
+            line-height: 1.4;
+            transition: opacity 0.3s;
+        }
+
+        .footer:hover {
+            opacity: 0.9; /* Fica mais visível ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-k">K</div>
+
+        <h1 class="title">KIRA TATTOO SUPPLY</h1>
+        <p class="subtitle">PRECISÃO. QUALIDADE. ARTE</p>
+
+        <a 
+            href="https://wa.me/5581998682721" 
+            target="_blank" 
+            class="btn-link"
+        >
+            <span class="icon">&#x1F52E;</span> Fazer Pedido
+        </a>
+
+        <a 
+            href="https://www.instagram.com/kiratattoosupply?igsh=MW05bmU4eG5wd2hzNg==" 
+            target="_blank" 
+            class="btn-link"
+        >
+            <span class="icon">&#x1F58B;</span> Ver Portfólio
+        </a>
+    </div>
+
+    <footer class="footer">
+        **Ponto Físico:** Praça Ismael Gouveia, 203 - Centro, Palmares/PE [Prédio da Mustang Pneus, 3 andar, sala 12].<br>
+        *Fazemos entregas para Palmares e Região.*
+    </footer>
+
+</body>
+</html>
