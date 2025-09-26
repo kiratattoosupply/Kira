@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kira Tattoo Supply</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Kira Tattoo Supply - Estilo Gótico Liquid Glass</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Estilos Globais e Fundo */
+        /* Estilos Globais e Variáveis CSS */
         :root {
-            --dark-gray: #1a1a1a;
-            --light-gray: #f0f0f0;
+            --dark-bg-color: #050505;
+            --mid-dark-color: #1a1a1a;
+            --light-text: #f0f0f0;
             --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --font-title: 'Cinzel', serif;
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --reflection-color: rgba(255, 255, 255, 0.5);
+            --shadow-color: rgba(0, 0, 0, 0.8);
+            --font-title: 'UnifrakturMaguntia', cursive; /* NOVA FONTE GÓTICA */
+            --font-subtitle: 'Cinzel', serif; /* Mantendo Cinzel para o subtítulo */
             --font-body: 'Roboto', sans-serif;
         }
 
@@ -24,17 +30,19 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--dark-gray);
-            color: var(--light-gray);
+            color: var(--light-text);
             font-family: var(--font-body);
             text-align: center;
-            /* Simula um leve ruído/textura no fundo escuro */
-            background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300" fill="%23181818" opacity=".3"><path d="M0 0h100v100H0zM100 100h100v100H100zM200 200h100v100H200z" /></svg>');
-            background-size: 300px 300px;
-            background-blend-mode: multiply;
-        }
+            overflow-x: hidden;
 
-        /* Container Principal para Centralizar o Conteúdo */
+            /* Fundo Texturizado Gótico - Mais Ruído e Degradê Suave */
+            background: var(--dark-bg-color);
+            background-image: 
+                radial-gradient(circle at center, var(--mid-dark-color) 0%, var(--dark-bg-color) 80%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300" fill="%231a1a1a" opacity=".3"><path d="M0 0h100v100H0zM100 100h100v100H100zM200 200h100v100H200z" /></svg>');
+        }
+        
+        /* Contêiner Principal */
         .container {
             display: flex;
             flex-direction: column;
@@ -42,84 +50,105 @@
             padding: 40px 20px;
             max-width: 90%;
             width: 500px;
-            /* Efeito "Glassmorphism" sutil no container principal */
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin-bottom: 80px;
         }
 
-        /* Estilo da Letra Ornamental 'K' (Logo) */
-        .logo-k {
-            font-family: var(--font-title);
-            font-size: 8rem; /* Letra bem grande */
-            font-weight: 900;
-            color: var(--light-gray);
-            /* Sombra para simular o efeito 3D/metálico */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 
-                         0 0 20px rgba(255, 255, 255, 0.1);
-            margin-bottom: 5px;
+        /* Logo em Imagem */
+        .logo-img {
+            width: 150px; /* Um pouco maior para destaque */
+            height: auto;
+            margin-bottom: 20px;
+            /* Garante que a imagem se misture ao fundo */
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
+            animation: fadeIn 2s ease-out;
         }
 
-        /* Títulos e Subtítulos */
+        /* Título Principal (Nova Fonte Gótica) */
         .title {
             font-family: var(--font-title);
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2.2rem; /* Aumentado para melhor leitura da fonte gótica */
+            font-weight: 400; 
             letter-spacing: 2px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
+            text-transform: none; /* Mantemos o estilo original da fonte */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
+        /* Subtítulo (Mantendo Cinzel) */
         .subtitle {
-            font-family: var(--font-body);
+            font-family: var(--font-subtitle);
             font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 1px;
             opacity: 0.8;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* Estilo dos Botões (Glassmorphism/Neomorphism) */
+        /* Botões: Liquid Glass Perfeito com Borda e Reflexo */
         .btn-link {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
             width: 100%;
-            max-width: 300px;
+            max-width: 340px;
             margin: 15px 0;
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 18px 30px;
+            border-radius: 50px; 
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            
+            transition: all 0.1s ease-out;
             cursor: pointer;
             
-            /* Efeito Glassmorphism nos Botões */
+            /* Efeito Liquid Glass - MÁXIMO REFORÇO */
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(25px) saturate(200%); 
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
             border: 1px solid var(--glass-border);
-            color: var(--light-gray);
+            color: var(--light-text);
             
-            /* Sombra interna para dar a aparência de relevo */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            /* Sombra para profundidade e Reflexo superior (Brilho no topo) */
+            box-shadow: 0 15px 40px var(--shadow-color), 
+                        inset 0 1px 0 var(--reflection-color); 
+            
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Reflexo Sutil de Vidro (igual da imagem) */
+        .btn-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%, rgba(255, 255, 255, 0) 100%); /* Aumenta o reflexo */
+            opacity: 1; /* Reflexo mais nítido */
+            transition: transform 0.4s ease;
+            pointer-events: none;
         }
 
+        /* Animação de HOVER (Levantar) */
         .btn-link:hover {
-            /* Efeito de brilho ao passar o mouse/tocar */
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px); 
+            box-shadow: 0 25px 60px var(--shadow-color), 
+                        inset 0 1px 0 var(--reflection-color);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Animação de CLIQUE (Apertar - Efeito Tinta/Flash) */
+        .btn-link:active {
+            transform: scale(0.96); 
+            box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.6), 
+                        inset 0 1px 0 rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 255, 255, 0.8);
         }
 
-        /* Ícones ao lado do texto (opcional, pode ser removido se não quiser) */
         .icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
+            margin-right: 12px; 
+            font-size: 1.3rem;
             line-height: 1;
         }
 
@@ -129,27 +158,28 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 15px 10px;
-            background-color: rgba(0, 0, 0, 0.3); /* Fundo sutil */
-            color: var(--light-gray);
-            font-size: 0.75rem;
+            padding: 20px 10px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.7rem;
             font-weight: 300;
-            opacity: 0.6; /* Deixa bem discreto */
-            line-height: 1.4;
-            transition: opacity 0.3s;
+            line-height: 1.5;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
         }
-
-        .footer:hover {
-            opacity: 0.9; /* Fica mais visível ao passar o mouse */
-        }
+        .footer p { margin: 0; padding: 0; }
+        
+        /* Remove elementos tribais, focando na imagem de logo */
+        .tribal-left, .tribal-right { display: none; } 
     </style>
 </head>
 <body>
-
+    
     <div class="container">
-        <div class="logo-k">K</div>
+        <img src="logo.png" alt="Kira Tattoo Supply Logo K" class="logo-img">
 
-        <h1 class="title">KIRA TATTOO SUPPLY</h1>
+        <h1 class="title">Kira Tattoo Supply</h1>
         <p class="subtitle">PRECISÃO. QUALIDADE. ARTE</p>
 
         <a 
@@ -157,7 +187,7 @@
             target="_blank" 
             class="btn-link"
         >
-            <span class="icon">&#x1F52E;</span> Fazer Pedido
+            <span class="icon">💉</span> FAZER PEDIDO
         </a>
 
         <a 
@@ -165,13 +195,14 @@
             target="_blank" 
             class="btn-link"
         >
-            <span class="icon">&#x1F58B;</span> Ver Portfólio
+            <span class="icon">🎨</span> VER PORTFÓLIO
         </a>
     </div>
 
     <footer class="footer">
-        **Ponto Físico:** Praça Ismael Gouveia, 203 - Centro, Palmares/PE [Prédio da Mustang Pneus, 3 andar, sala 12].<br>
-        *Fazemos entregas para Palmares e Região.*
+        <p><strong>Ponto Físico:</strong> Praça Ismael Gouveia, 203 - Centro, Palmares/PE</p>
+        <p>[Prédio da Mustang Pneus, 3 andar, sala 12].</p>
+        <p><em>Fazemos entregas para Palmares e Região.</em></p>
     </footer>
 
 </body>
