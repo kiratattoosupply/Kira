@@ -1,209 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kira Tattoo Supply - Estilo Gótico Liquid Glass</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Estilos Globais e Variáveis CSS */
-        :root {
-            --dark-bg-color: #050505;
-            --mid-dark-color: #1a1a1a;
-            --light-text: #f0f0f0;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.25);
-            --reflection-color: rgba(255, 255, 255, 0.5);
-            --shadow-color: rgba(0, 0, 0, 0.8);
-            --font-title: 'UnifrakturMaguntia', cursive; /* NOVA FONTE GÓTICA */
-            --font-subtitle: 'Cinzel', serif; /* Mantendo Cinzel para o subtítulo */
-            --font-body: 'Roboto', sans-serif;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--light-text);
-            font-family: var(--font-body);
-            text-align: center;
-            overflow-x: hidden;
-
-            /* Fundo Texturizado Gótico - Mais Ruído e Degradê Suave */
-            background: var(--dark-bg-color);
-            background-image: 
-                radial-gradient(circle at center, var(--mid-dark-color) 0%, var(--dark-bg-color) 80%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300" fill="%231a1a1a" opacity=".3"><path d="M0 0h100v100H0zM100 100h100v100H100zM200 200h100v100H200z" /></svg>');
-        }
-        
-        /* Contêiner Principal */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            max-width: 90%;
-            width: 500px;
-            margin-bottom: 80px;
-        }
-
-        /* Logo em Imagem */
-        .logo-img {
-            width: 150px; /* Um pouco maior para destaque */
-            height: auto;
-            margin-bottom: 20px;
-            /* Garante que a imagem se misture ao fundo */
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
-            animation: fadeIn 2s ease-out;
-        }
-
-        /* Título Principal (Nova Fonte Gótica) */
-        .title {
-            font-family: var(--font-title);
-            font-size: 2.2rem; /* Aumentado para melhor leitura da fonte gótica */
-            font-weight: 400; 
-            letter-spacing: 2px;
-            text-transform: none; /* Mantemos o estilo original da fonte */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Subtítulo (Mantendo Cinzel) */
-        .subtitle {
-            font-family: var(--font-subtitle);
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Botões: Liquid Glass Perfeito com Borda e Reflexo */
-        .btn-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            width: 100%;
-            max-width: 340px;
-            margin: 15px 0;
-            padding: 18px 30px;
-            border-radius: 50px; 
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            
-            transition: all 0.1s ease-out;
-            cursor: pointer;
-            
-            /* Efeito Liquid Glass - MÁXIMO REFORÇO */
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px) saturate(200%); 
-            -webkit-backdrop-filter: blur(25px) saturate(200%);
-            border: 1px solid var(--glass-border);
-            color: var(--light-text);
-            
-            /* Sombra para profundidade e Reflexo superior (Brilho no topo) */
-            box-shadow: 0 15px 40px var(--shadow-color), 
-                        inset 0 1px 0 var(--reflection-color); 
-            
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Reflexo Sutil de Vidro (igual da imagem) */
-        .btn-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%, rgba(255, 255, 255, 0) 100%); /* Aumenta o reflexo */
-            opacity: 1; /* Reflexo mais nítido */
-            transition: transform 0.4s ease;
-            pointer-events: none;
-        }
-
-        /* Animação de HOVER (Levantar) */
-        .btn-link:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 25px 60px var(--shadow-color), 
-                        inset 0 1px 0 var(--reflection-color);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Animação de CLIQUE (Apertar - Efeito Tinta/Flash) */
-        .btn-link:active {
-            transform: scale(0.96); 
-            box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.6), 
-                        inset 0 1px 0 rgba(0, 0, 0, 0.3);
-            border-color: rgba(0, 255, 255, 0.8);
-        }
-
-        .icon {
-            margin-right: 12px; 
-            font-size: 1.3rem;
-            line-height: 1;
-        }
-
-        /* Rodapé Discreto */
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 10px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.7rem;
-            font-weight: 300;
-            line-height: 1.5;
-            text-align: center;
-            pointer-events: none;
-            z-index: 10;
-        }
-        .footer p { margin: 0; padding: 0; }
-        
-        /* Remove elementos tribais, focando na imagem de logo */
-        .tribal-left, .tribal-right { display: none; } 
-    </style>
+    <title>KIRA TATTOO SUPPLY - Qualidade Profissional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <div class="container">
-        <img src="logo.png" alt="Kira Tattoo Supply Logo K" class="logo-img">
-
-        <h1 class="title">Kira Tattoo Supply</h1>
-        <p class="subtitle">PRECISÃO. QUALIDADE. ARTE</p>
-
-        <a 
-            href="https://wa.me/5581998682721" 
-            target="_blank" 
-            class="btn-link"
-        >
-            <span class="icon">💉</span> FAZER PEDIDO
-        </a>
-
-        <a 
-            href="https://www.instagram.com/kiratattoosupply?igsh=MW05bmU4eG5wd2hzNg==" 
-            target="_blank" 
-            class="btn-link"
-        >
-            <span class="icon">🎨</span> VER PORTFÓLIO
-        </a>
+    <div id="intro-screen">
+        <h1 class="intro-logo" id="introLogo">KIRA TATTOO SUPPLY</h1>
     </div>
 
-    <footer class="footer">
-        <p><strong>Ponto Físico:</strong> Praça Ismael Gouveia, 203 - Centro, Palmares/PE</p>
-        <p>[Prédio da Mustang Pneus, 3 andar, sala 12].</p>
-        <p><em>Fazemos entregas para Palmares e Região.</em></p>
-    </footer>
+    <div id="main-site-content" class="hidden">
+        
+        <header id="main-header">
+            <h1 class="logo fade-in-up">KIRA TATTOO SUPPLY</h1>
+            <p class="tagline fade-in-up">O material que eleva a sua arte.</p>
+        </header>
 
+        <main class="hero-section">
+            <h2 class="fade-in-up delay-1">Seu estúdio merece o melhor.</h2>
+            <div class="buttons-container">
+                <a href="https://wa.me/5581998682721" target="_blank" class="button primary-button fade-in-up delay-2">
+                    Fazer Pedido via WhatsApp
+                </a>
+
+                <a href="https://www.instagram.com/kiratattoosupply?igsh=MW05bmU4Z25wd2hzNg==" target="_blank" class="button secondary-button fade-in-up delay-3">
+                    Produtos Disponíveis
+                </a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 KIRA TATTOO SUPPLY. Feito para tatuadores.</p>
+                <address>
+                    <p>Endereço: Praça Ismael Gouveia, 203 - Centro, Palmares/PE</p>
+                    <p>Entregamos em **Palmares e Região**.</p>
+                </address>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
